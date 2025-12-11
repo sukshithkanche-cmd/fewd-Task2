@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayShare - Expense Splitter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>PayShare</h1>
+        <p>Split bills. Share expenses. Pay easily.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#shared-expense">Shared Expense</a></li>
+            <li><a href="#group-payment">Group Payment</a></li>
+            <li><a href="#splitter">Expense Splitter</a></li>
+        </ul>
+    </nav>
+
+    <section id="shared-expense" class="section-box">
+        <h2>Shared Expense</h2>
+        <p>Track and manage expenses shared among friends, roommates, or colleagues. Add expenses, assign payers, and keep everything fair.</p>
+    </section>
+
+    <section id="group-payment" class="section-box">
+        <h2>Group Payment</h2>
+        <p>Create a group, add members, and calculate how much each person owes. Group payments make settling bills easier than ever.</p>
+    </section>
+
+    <section id="splitter" class="section-box">
+        <h2>Bill Splitter</h2>
+        <p>Enter the total bill amount and number of people to calculate equal shares instantly.</p>
+
+        <div class="splitter-box">
+            <label>Total Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount">
+
+            <label>Number of People:</label>
+            <input type="number" id="people" placeholder="Enter number">
+
+            <button onclick="calculateSplit()">Split Now</button>
+
+            <h3 id="result"></h3>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 PayShare | Designed for GitHub</p>
+    </footer>
+
+    <script>
+        function calculateSplit() {
+            let amount = document.getElementById("amount").value;
+            let people = document.getElementById("people").value;
+
+            if (amount === "" || people === "" || people <= 0) {
+                document.getElementById("result").innerHTML = "Please enter valid numbers.";
+            } else {
+                let split = (amount / people).toFixed(2);
+                document.getElementById("result").innerHTML = "Each Person Pays: ₹" + split;
+            }
+        }
+    </script>
+
+</body>
+</html>
